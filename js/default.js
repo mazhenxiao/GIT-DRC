@@ -151,11 +151,12 @@
 // 页面统一调用入口
 	
 	$(function(){
-		$doc.on("mousedown",".iss-placeholder",function(){
+		$doc.on("touchstart",".iss-placeholder,.J_Event_Select",function(){
 			var th = $(this);
 			(th.hasClass("iss-placeholder"))&&(!function(){
 				th.removeClass("iss-placeholder").val("").focus();
 			}());
+
 		})
 	})
 	
