@@ -3,6 +3,7 @@
  * @param  {[type]} $      [description]
  * @param  {[type]} window [description]
  * @return {[type]}        [description]
+ * 
  */
 
 ;~function($,window){
@@ -16,8 +17,8 @@
 		var th = this,
 			_opt = {
 			title:"标题",
-			width:"100%",
-			height:"100%",
+			width:"400px",
+			height:"200px",
 			background:"rgba(0,0,0,0.7)",
 			content:"显示内容",
 			url:"",
