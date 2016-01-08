@@ -4,6 +4,8 @@
 @f26:26px;
 @f22:22px;
 @f28:28px;
+@f32:32px;
+@f36:36px;
 @f2:#f2f2f2;
 @e9:#e9e9e9;
 @c3:#c3c3c3;
@@ -21,9 +23,12 @@
 }
 
 /*修改bootstrap*/
-.container{padding-top:0;}
-.container .row{}
+.container{padding-top:0;padding-left:0;padding-right:0}
+.container .row{margin-left:0;margin-right:0}
 .modal-footer .btn + .btn{margin-left:10px}
+.modal{position:fixed;top:50%;left:50%;-webkit-transform: translate(-50%,-50%);  
+      -ms-transform: translate(-50%,-50%);  
+          transform: translate(-50%,-50%);}
 
 /*公用css*/
 html,body{ height:100%;width:100%;  font-family:"黑体","Arial" ;letter-spacing:0.03em}
@@ -56,6 +61,8 @@ input:focus { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
 .iss-clear{clear:both}
 .iss-placeholder{color:@C9}
 .iss-Nobr{border:none;}
+.iss-padH20{padding:0 20px;}
+.iss-pad20{padding:20px;}
 .block{display:block;height:100%}
 /*module*/
 .DRC-search-box{
@@ -72,6 +79,7 @@ input:focus { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
             span.DRC-menu-searchBTN{display:inline-block;width:53px;height:42px;border-left:@B_c3;background:url(../image/min/findshop_02.png) no-repeat -617px 0px;margin-top:7px;cursor: pointer;}
             
         }
+        h1{height:80px;line-height:80px;padding-right:115px;font-size:@f36;}
     }
  
 }

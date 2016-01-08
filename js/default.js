@@ -30,7 +30,7 @@
 			id:new Date().getTime(),
 			Load:$.noop,
 			Close:$.noop,
-			_tem:'<div class="modal fade" id="id_<%=id%>">'
+			_tem:'<div class="modal" id="id_<%=id%>" style="width:<%=width%>;height:<%=height%>;">'
 				 +	'<div class="modal-dialog">'
 				 +	 	'<div class="modal-content">'
       			 +			'<div class="modal-header">'
@@ -55,7 +55,7 @@
 		
 		_opt = th.setButton(_opt);
 		//console.log(_opt);
-		iss["list"][_opt.id]=th._dom = $(_.template(_opt._tem)({title:_opt.title,id:_opt.id,content:_opt.content,button:_opt.Button})).appendTo("body .container");
+		iss["list"][_opt.id]=th._dom = $(_.template(_opt._tem)({title:_opt.title,id:_opt.id,content:_opt.content,button:_opt.Button,width:_opt.width,height:_opt.height})).appendTo("body .container");
 		th._dom.on("shown.bs.modal",_opt.Load)
 				 .on("hidden.bs.modal",_opt.Close)
 				 .on("click.modal",".btn-ok,.btn-cancel,.btn-it-default",_opt,th.Event)
