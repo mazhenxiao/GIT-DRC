@@ -3,7 +3,25 @@
  * @param  {[type]} $      [description]
  * @param  {[type]} window [description]
  * @return {[type]}        [description]
- * 
+ *1、 iss.dialog({
+ *      id:"id",//弹窗id非必需   在iss.list["id"].show();回掉显示该内容
+ *      url:"http://www.baidu.com", //如果设置url则不需要设置content
+ * 		title:"提示消息",
+ * 		width:"400px",
+ * 		height:"200px",
+ * 		background:"#fff",//背景色
+ * 		okVal:"确认或false",//默认显示    如果调整为false则不显示确认按钮
+ * 		ok:function(){},//点击确认按钮后回掉
+ *      cancelVal:"取消或false",//默认显示    如果调整为false则不显示取消按钮
+ * 		cancel:function(){},//点击取消按钮后回掉
+ * 		button:[{name:"自定义button",callback:function(){},disabled:""}], //name:"自定义按钮名称",callback:回掉函数,disabled:是否禁用
+ * 		Load:"function(){}" ,//显示窗口后回掉
+ * 		Close:function(){},//关闭窗口回掉函数
+ * 		})
+ * 1、 iss.alert("提示内容")
+ * 2、 iss.alert("提示内容",function(){}) //确认后回掉
+ *
+ * 1、 iss.confirm("confirm",function(){},function(){})   // 你懂的
  */
 
 ;~function($,window){
