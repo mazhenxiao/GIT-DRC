@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="index.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">登录</h1>
+					<a href="registrar.html" class="login">注册</a>
+				</div>
+			</section>
+			<section class="row DRC-addCar-box DRC-login-box">
+				<div class="col-xs-12">
+					<div class="iss-oh DRC-login-form login-h40">
+						<img src="image/min/login_83.jpg" />
+						<input type="text" class="addCar-input iss-placeholder login-name" value="请输入手机号码" />
+						<span href="javascript:;" class="login-getphone iss-right">获取验证码</span>
+						<p class="addCarLine"></p>
+					</div>
+					<div class="iss-mgT50 iss-oh DRC-login-form login-t50">
+						<img src="image/min/login_113.jpg" />
+						<input type="text" class="addCar-input iss-placeholder login-" value="请输入手机验证码" />
+						<p class="addCarLine"></p>
+					</div>
+			
+				</div>
+				<div class="col-xs-12">
+					<p class="text-center DRC-login-t120"><a href="javascript:;" class="iss-btn600">登录</a></p>
+				</div>
+			</section>
+		
+
+		
+
+		</article>
+
+	<script>
+		seajs.use(["./css/addCar.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/default.js","./js/streetSnap.js","./js/login.js"],function(select){
+			//蓉蓉播报页面公用js
+		    
+		
+		})
+		
+	</script>
+	</body>
+	
+</html>

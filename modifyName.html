@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>修改昵称</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+<form action="" class="am-form" id="doc-vld-msg">
+		<article class="container">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="userInfo.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">修改昵称</h1>
+				</div>
+
+			</section>
+			<section class="row  DRC-registrar-form">
+				<div class="col-xs-12">
+					<div class="iss-oh DRC-login-form am-form-group">
+			
+						<input type="text" class="addCar-input iss-placeholder login-name" id="doc-vld-name-2-1" minlength="3" placeholder="起个名字很难" required min="3" data-validation-message="输入三个数字试试" pattern="\d"/>						
+						<p class="addCarLine"></p>
+					</div>
+				
+			
+				</div>
+				<div class="col-xs-12">
+					<p class="text-center DRC-login-t120"><a href="javascript:;" class="iss-btn600">保存</a></p>
+					
+				</div>
+			</section>
+		
+
+		
+
+		</article>
+	</form>
+	<script>
+		seajs.use(["./css/addCar.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/streetSnap.js","./js/registrar.js"],function(select){
+			//蓉蓉播报页面公用js
+					$(function(){
+
+						    $('#doc-vld-msg').validator({
+   				 onValid: function(validity) {
+     				 $(validity.field).closest('.am-form-group').find('.am-alert').hide(); //
+   			 },
+
+    			onInValid: function(validity) {
+      				var $field = $(validity.field);
+      				var $group = $field.closest('.am-form-group');
+      				var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+      	if (!$alert.length) {
+       		 $alert = $('<div class="am-alert am-alert-danger"></div>').hide().appendTo($group);
+            }
+
+      $alert.html(msg).show();
+      }
+  }); //验证结束
+
+		$(".iss-btn600").click(function(){
+			 	$("#doc-vld-msg").submit();
+
+		})
+
+
+		}) //jquery
+		
+		
+
+		}) //seajs
+
+
+
+		
+	</script>
+	</body>
+	
+</html>

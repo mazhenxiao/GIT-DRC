@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>添加车牌</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="index.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">添加车牌</h1>
+				</div>
+			</section>
+			<section class="row DRC-addCar-box">
+				<div class="col-xs-12 text-center">
+					<input type="text" class="addCar-input iss-placeholder" value="请输入车牌，例如：京A12345" />
+					<p class="addCarLine"></p>
+				</div>
+				<div class="col-xs-12 iss-mgT50">
+					<p class="ddCar_checkbox">
+						<label  class="am-checkbox"><input type="checkbox" data-am-ucheck><span class="iss-padL20">默认车牌</span></label></p>
+					<p class="ddCar_checkbox">
+						
+						<label  class="am-checkbox"><input type="checkbox" data-am-ucheck><span class="iss-padL20">默认使用积分</span></label></p>
+					<p class="text-center iss-mgT50"><a href="javascript:;" class="iss-btn600">绑定</a></p>
+				</div>
+			</section>
+		
+
+		
+
+		</article>
+
+	<script>
+		seajs.use(["./css/addCar.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/streetSnap.js","./js/addCar.js"],function(select){
+			//蓉蓉播报页面公用js
+		 
+		
+		})
+		
+	</script>
+	</body>
+	
+</html>

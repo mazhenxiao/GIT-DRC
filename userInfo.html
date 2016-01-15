@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人资料信息</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="index.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">个人资料信息</h1>
+				</div>
+			</section>
+			<section class="row  DRC-userInfo-form">
+				<div class="col-xs-12">
+				 <dl class="row">
+				 	<dt class="col-xs-6 text-left">头像</dt>
+				 	<dd class="col-xs-6 text-right" ><img id="info-img" src="image/min/streetSnap_34.jpg"  class="img-circle" /><a href="javascript:;" class="DRC-right J_Event_img"></a></dd>
+				 </dl>
+				 <dl class="row">
+				 	<dt class="col-xs-6 text-left">昵称</dt>
+				 	<dd class="col-xs-6 text-right">
+				 	<span id="info-name">YBZ</span>
+				 	<a href="modifyName.html" class="DRC-right J_Event_name"></a></dd>
+				 </dl>
+				 <dl class="row">
+				 	<dt class="col-xs-6 text-left">性别</dt>
+				 	<dd class="col-xs-6 text-right">
+				 	<span id="info-sex">女</span>
+				 	<a href="javascript:;" class="DRC-right J_Event_sex"></a>
+				 	</dd>
+				 </dl>
+				 <dl class="row">
+				 	<dt class="col-xs-6 text-left">生日</dt>
+				 	<dd class="col-xs-6 text-right">
+				 		<span type="text"  id="info-day"> 1989-11-02</span>
+				 	<a href="javascript:;" class="DRC-right J_Event_day"></a>
+				 	</dd>
+				 </dl>
+				 <dl class="row">
+				 	<dt class="col-xs-6 text-left">手机号</dt>
+				 	<dd class="col-xs-6 text-right">
+				 	<span id="info-phone">13666666668</span>
+				 	<a href="modifyPhone.html" class="DRC-right J_Event_phone"></a>
+				 	</dd>
+				 </dl>
+			
+				</div>
+			
+			</section>
+		
+
+		
+
+		</article>
+
+	<script>
+		seajs.use(["./css/userInfo.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/streetSnap.js","./js/userInfo.js"],function(select){
+			//蓉蓉播报页面公用js
+			/*
+			 * 修改回调
+			 */
+			
+			
+		   
+		
+		})
+		
+	</script>
+	</body>
+	
+</html>
+

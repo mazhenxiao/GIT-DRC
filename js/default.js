@@ -160,11 +160,89 @@
 		if(cancel){_opts.cancel = cancel}
 		this.dialog(_opts);
 	}
+	
+	//浮动
+	/*
+		iss.float({
+		    	content:"<ul class='DRC-select'><li>男</li><li>女</li></ul>", 
+		    	cancelVal:"取消",                                             
+		    	cancel:function(){ alert("取消")},
+		    	okVal:"确定",
+		    	ok:function(){alert("确定")},
+		    	button:[{name:"自定义",callback:function(){alert("自定义")}}]
+
+
+		    })
+	 */
+	function Float(arg){
+		this.remove();
+		var opt ={
+			content:"",
+			button:false,//[{name:"自定义",callback:$.noop},{name:"2",callback:$.noop}],
+			ok:$.noop,
+			okVal:false,
+			cancel:$.noop,
+			cancelVal:"取消"
+		},
+		_mod = '<section class="iss-Float"><div class="iss-Float-Box"><div class="iss-Float-content"><%=content%></div><footer class="iss-Float-button"><%=Button%></footer></div></section>';
+		_.extend(opt,arg);
+		this.create(opt,_mod);
+	}
+	Float.prototype ={
+		create:function(opt,_mod){
+			var btn = "",
+				_opt={},
+				_this = this;
+			  if(opt.okVal){
+			  		btn+='<a href="javascript:;" class="btn btn-warning J_issFloatBtn" data-num="ok">'+opt.okVal+'</a>'
+				}
+			  if(opt.cancelVal){btn+='<a href="javascript:;" class="btn btn-default J_issFloatBtn" data-num="cancel">'+opt.cancelVal+'</a>' }
+			  if(opt.button){
+			  	opt.button.forEach(function(key,ind){
+			  		btn+='<a href="javascript:;" class="btn btn-default J_issFloatBtn" data-num="'+(ind+1)+'">'+key.name+'</a>';
+			  	})
+			  }
+			  _opt["content"] = opt.content;
+			  _opt["Button"]=btn;
+			  _opt["origin"] = opt;
+			  _opt["_this"] = _this;
+			  $(_.template(_mod)(_opt))
+			  .appendTo("body")
+			  .on("touchend.DRC",".J_issFloatBtn",_opt,this.Event_Float);
+			  
+			  
+		},
+		Event_Float:function(ev){
+
+			var th = $(this),
+				da = ev.data,
+			    attr = th.attr("data-num");
+			    //console.log(da);
+			    if(th.hasClass("J_issFloatBtn")){
+			    	var index = parseInt(attr)
+			    	if(!index&&attr=="ok"){ ;~(da.origin.ok)(); }
+			    	if(!index&&attr=="cancel"){;~(da.origin.cancel)();}
+			    	if(index){
+			    		;~(da.origin.button[index-1].callback)();
+			    	}
+			    	da._this.remove();
+			    }
+		},
+		remove:function(){
+			     
+				$(".iss-Float").remove().off("touchend.DRC");//清理页面
+			
+		}
+		
+	}//proto
+
  //iss 页面统一调用接口
 	_.extend(iss,{
 		dialog:function(arg){ new Dialog(arg)},
 		alert:Alert,
-		confirm:Confom
+		confirm:Confom,
+		float:function(arg){new Float(arg)}
+		
 	});
 	
 // 页面统一调用入口
@@ -182,3 +260,96 @@
 //公共函数
 	
 }(jQuery,window)
+
+ // 对Date的扩展，将 Date 转化为指定格式的String 
+    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+    // 例子： 
+    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+    // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+    window.Date.prototype.Format = function (fmt) { //author: meizz 
+        (!fmt) && (fmt = "yyyy-mm-dd");
+        var o = {
+            "M+": this.getMonth() + 1,                 //月份 
+            "d+": this.getDate(),                    //日 
+            "h+": this.getHours(),                   //小时 
+            "m+": this.getMinutes(),                 //分 
+            "s+": this.getSeconds(),                 //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds()             //毫秒 
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    window.String.prototype.replaceAll = function (reallyDo, replaceWith, ignoreCase) {
+        if (!RegExp.prototype.isPrototypeOf(reallyDo)) {
+            return this.replace(new RegExp(reallyDo, (ignoreCase ? "gi" : "g")), replaceWith);
+        } else {
+            return this.replace(reallyDo, replaceWith);
+        }
+    }
+    //字符串截取
+    window.String.prototype.overflow = function (int, replace, title) {
+        var str = this.toString(),
+            len = int || str.length,
+            re = replace || "...",
+            ti = title || str;
+            
+        txt = '<span title="' + str + '">' + str.substr(0, len) + (str.length <= int ? "" : re) + '</span>'
+            return txt;
+            
+    }
+
+    window.Number.prototype.FormatThousand = function (cent) {
+        var num = this.toString().replace(/\$|\,/g, '');
+        if (isNaN(num))//检查传入数值为数值类型.
+            num = "0";
+        if (isNaN(cent))//确保传入小数位为数值型数值.
+            cent = 0;
+        cent = parseInt(cent);
+        cent = Math.abs(cent);//求出小数位数,确保为正整数.
+
+        sign = (num == (num = Math.abs(num)));//获取符号(正/负数)
+        //Math.floor:返回小于等于其数值参数的最大整数
+        num = Math.floor(num * Math.pow(10, cent) + 0.50000000001);//把指定的小数位先转换成整数.多余的小数位四舍五入.
+        cents = num % Math.pow(10, cent); //求出小数位数值.
+        num = Math.floor(num / Math.pow(10, cent)).toString();//求出整数位数值.
+        cents = cents.toString();//把小数位转换成字符串,以便求小数位长度.
+        while (cents.length < cent) {//补足小数位到指定的位数.
+            cents = "0" + cents;
+        }
+
+        //对整数部分进行千分位格式化.
+        for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3) ; i++)
+            num = num.substring(0, num.length - (4 * i + 3)) + '’' +
+            num.substring(num.length - (4 * i + 3));
+        return (((sign) ? '' : '-') + num + '.' + cents);
+    }
+
+    window.getQueryString = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = location.search.substr(1).match(reg);
+        if (r != null) return unescape(decodeURI(r[2])); return null;
+    }
+
+
+    window.getDateTime = function (str) {
+        if (str != null && str != "" && str != undefined) {
+            var d = new Date(parseInt(str.replace("/Date(", "").replace(")/", ""), 10));
+            var time = '';
+            var month = parseInt((d.getMonth() + 1)) < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1);
+            var day = parseInt(d.getDate()) < 10 ? '0' + d.getDate() : d.getDate();
+            var hours = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
+            var minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+            var seconds = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+            time = d.getFullYear() + '-' + month + '-' + day + ' ' + hours + ":" + minutes + ":" + seconds;
+            return time;
+        } else {
+            return "";
+        }
+    }

@@ -1,3 +1,4 @@
+@import "mixins.less";
 @color:#5b5b5b;
 @t1O:10px;
 @f12:12px;
@@ -19,18 +20,28 @@
 @B_c3:solid 1px #c3c3c3;
 @B_d7:solid 1px #d7d7d7;
 @B_5b:solid 1px #5b5b5b;
-.transtion(@a:background,@b:1s,@c:linear){
-	transition:@a @b @c;-webkit-transition:@a @b @c;-moz-transition:@a @b @c;
-}
-.transform(@a){
-	transform:@a;-webkit-transform:@a;-moz-transform:@a;
-}
 
+
+
+//修改amaeiui
+.am-ucheck-checkbox:checked + .am-ucheck-icons, .am-ucheck-checkbox:not(.am-nohover):not(:disabled) + .am-ucheck-icons, .am-ucheck-radio:checked + .am-ucheck-icons, .am-ucheck-radio:hover:not(.am-nohover):not(:disabled) + .am-ucheck-icons{
+   color:#ff5a00 !important;
+}
+.am-form input[type="number"]:focus, .am-form input[type="search"]:focus, .am-form input[type="text"]:focus, .am-form input[type="password"]:focus, .am-form input[type="datetime"]:focus, .am-form input[type="datetime-local"]:focus, .am-form input[type="date"]:focus, .am-form input[type="month"]:focus, .am-form input[type="time"]:focus, .am-form input[type="week"]:focus, .am-form input[type="email"]:focus, .am-form input[type="url"]:focus, .am-form input[type="tel"]:focus, .am-form input[type="color"]:focus, .am-form select:focus, .am-form textarea:focus, .am-form-field:focus
+,.am-form input[type="number"], .am-form input[type="search"], .am-form input[type="text"], .am-form input[type="password"], .am-form input[type="datetime"], .am-form input[type="datetime-local"], .am-form input[type="date"], .am-form input[type="month"], .am-form input[type="time"], .am-form input[type="week"], .am-form input[type="email"], .am-form input[type="url"], .am-form input[type="tel"], .am-form input[type="color"], .am-form select, .am-form textarea, .am-form-field
+,.am-field-error, .am-form-error .am-form-field,.am-field-valid, .am-form-success .am-form-field
+{
+    border:none !important;
+    box-shadow:none !important;
+}
+.am-field-error, .am-form-error .am-form-field{
+    color:#c00;
+}
 /*修改bootstrap*/
 .container{padding-top:0;padding-left:0;padding-right:0}
 .container .row{margin-left:0;margin-right:0}
 .modal-footer .btn + .btn{margin-left:10px}
-.modal{position:fixed;top:50%;left:50%;-webkit-transform: translate(-50%,-50%);  
+.modal{position:fixed;top:50%;left:50%;z-index:2000;-webkit-transform: translate(-50%,-50%); 
       -ms-transform: translate(-50%,-50%);  
           transform: translate(-50%,-50%);}
 
@@ -55,7 +66,7 @@ input[type=text]::outside,
 input[type=text]::selection,
 input[type=text]:hover
 { border-color:#e98f00; background:rgb(247, 255, 212);-webkit-focus-ring-color:none !important;-webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
-a,a:hover { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;text-decoration: none;}
+a,a:hover { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;text-decoration: none !important;}
 i{font-style:normal !important;}
 a.btn { color:#fff !important}
 input:focus,a:focus { z-index:10 ;position:relative;outline:none}
@@ -64,27 +75,33 @@ input:focus { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
 .iss-right{float:right}
 .iss-oh{overflow: hidden;}
 .iss-clear{clear:both}
-.iss-placeholder{color:@C9}
+.iss-placeholder{color:@C9 }
 .iss-Nobr{border:none;}
-.iss-padH20{padding:0 20px;}
-.iss-pad20{padding:20px;}
+.iss-padH20{padding:0 20px !important;}
+.iss-pad20{padding:20px !important;}
 .iss-mgT20{margin-top:20px !important;}
+.iss-mgT50{margin-top:50px !important;}
 .iss-mgT0{margin-top:0 !important;}
 .iss-mgL0{margin-left:0 !important;}
 .iss-mgR0{margin-right:0 !important;}
+.iss-mgV20{margin:20px 0;}
 .iss-pad20{padding:20px;}
+.iss-padL20{padding-left:20px}
 .iss-padH20{padding:0 20px;}
 .iss-padV20{padding:20px 0px;}
 .iss-f30{font-size:30px;}
 .iss-f26{font-size:26px;}
 .iss-cc{color:@C9;}
 .iss-cy{color:#FF5A00 }
+.iss-hide{display:none;}
+.iss-btn600,a.iss-btn600{width: 600px; height:80px;line-height:80px; background:#ff5a00; display: inline-block;font-size:28px;color:#fff;}
 .block{display:block;height:100%}
 /*module*/
 .DRC-right{background:url(../image/min/hotinfo_03.jpg) no-repeat center center;width:19px;height: 32px;vertical-align: middle;}
-.DRC-btn{&:hover{color:#fff};padding:0 20px;line-height:60px;height:60px;background:#ff5a00;color:#fff;font-size:@f26; display:inline-block;text-align: center}
-.DRC-btn200{
-    .DRC-btn;
+.DRC-btn{
+    &:hover{color:#fff};
+    padding:0 20px;line-height:60px;height:60px;background:#ff5a00;color:#fff;font-size:@f26; display:inline-block;text-align: center;
+
     min-width:160px;
 }
 .DRC-border-top{border-top:@B_d7;}
@@ -121,8 +138,7 @@ input:focus { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
              &:nth-child(6){background-position:-187px -213px;} 
              &:nth-child(7){background-position:-374px -213px;background-color:@BG_fc;} 
              &:nth-child(8){background-position:-561px -213px;} 
-           
-             
+            
             }
             
         
@@ -174,3 +190,55 @@ input:focus { -webkit-tap-highlight-color:rgba(0,0,0,0) !important;}
               }
             
             }
+.iss-Float{ position:fixed;top:0;left:0;z-index:2001; background:rgba(0,0,0,0.7);height:100%;width:100%;overflow: hidden;
+    .iss-Float-Box{position:fixed;bottom:0;left:0;width:100%;
+        animation:float 0.1s;
+        -webkit-animation:float 0.1s; 
+        .iss-Float-content{background:#fff;}
+        .iss-Float-button{
+            margin-top:10px;text-align:center;background:#fff;padding:10px;
+            .btn{color:#5b5b5b !important;margin:0 10px; min-width:90px;}
+            .btn-warning{color:#fff !important}
+        }
+
+ 
+    }
+
+
+}
+
+@keyframes float
+{
+from { 
+    -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+to { 
+    -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+}
+
+@-webkit-keyframes float /*Safari and Chrome*/
+{
+from { 
+    -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+to { 
+    -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+}
+
+
+
+.DRC-select{
+    li{padding:10px;border-top:@B_d7;&:first-child{border-top:none;}}
+}
+
+.am-datepicker{ width:100% !important;right:0 !important;
+    .am-datepicker-caret{display: none !important;}
+}
+
+    

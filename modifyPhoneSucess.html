@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>修改手机号码</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+		<form action="" class="am-form" id="doc-vld-msg">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="userInfo.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">修改手机号码</h1>
+				</div>
+
+			</section>
+			<section class="row  DRC-registrar-form">
+				<div class="col-xs-12">
+					<h4 class="modifyPhone-h4 text-center">验证成功！请输入新手机号</h4>
+					<div class="iss-oh DRC-login-form am-form-group">
+			            
+						<input type="text" value="" placeholder="请输入请输入手机号码" class="addCar-input iss-placeholder login-name" id="doc-vld-name-2-1" minlength="3"  required  data-validation-message="请输入正确的手机号" pattern="\d"/>						
+						<p class="addCarLine"></p>
+					</div>
+				
+			
+				</div>
+			<div class="col-xs-12">
+					<div class="iss-oh DRC-login-form login-h40 am-form-group">
+						<input class="addCar-input iss-placeholder login-name" placeholder="请输入验证码" value="" type="text" required data-validation-message="请输入验证码">
+						<span href="javascript:;" class="login-getphone iss-right">获取验证码</span>
+						<p class="addCarLine"></p>
+					</div>
+					
+			
+				</div>
+			
+				<div class="col-xs-12">
+					<p class="text-center DRC-login-t120"><a href="javascript:;" class="iss-btn600">下一步</a></p>
+					
+				</div>
+			</section>
+		
+
+			</form>
+
+		</article>
+
+	<script>
+		seajs.use(["./css/addCar.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/streetSnap.js","./js/registrar.js"],function(select){
+			//蓉蓉播报页面公用js
+					$(function(){
+
+						    $('#doc-vld-msg').validator({
+   				 onValid: function(validity) {
+     				 $(validity.field).closest('.am-form-group').find('.am-alert').hide(); //
+   			 },
+
+    			onInValid: function(validity) {
+      				var $field = $(validity.field);
+      				var $group = $field.closest('.am-form-group');
+      				var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+      	if (!$alert.length) {
+       		 $alert = $('<div class="am-alert am-alert-danger"></div>').hide().appendTo($group);
+            }
+
+      $alert.html(msg).show();
+      }
+  }); //验证结束
+
+		$(".iss-btn600").click(function(){
+			 	$("#doc-vld-msg").submit();
+
+		})
+
+
+		}) //jquery
+		
+		
+
+		}) //seajs
+
+
+
+		
+	</script>
+	</body>
+	
+</html>
