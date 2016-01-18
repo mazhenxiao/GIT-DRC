@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扫码积分</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+		
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="index.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">扫码积分</h1>
+				</div>
+
+			</section>
+			<section class="row DRC-scanSucessBox DRC-border-top">
+				<dl class="col-xs-12">
+					<!-- (dt.iss-left>img)+dd.scanSucess>p.scanSucessTitle{巴贝拉}+p>img*5+span.scanSucessNumb{4.5} -->
+					<dt class="iss-left"><img width="100" src="image/min/icons_03.jpg" class="img-circle"></dt>
+					<dd class="scanSucess">
+						<p class="scanSucessTitle">巴贝拉</p>
+						<p>
+							<img src="image/min/scan_28.jpg" />
+							<img src="image/min/scan_28.jpg" />
+							<img src="image/min/scan_28.jpg" />
+							<img src="image/min/scan_28.jpg" />
+							<img src="image/min/scan_29.jpg" />
+							<span class="scanSucessNumb">4.5</span>
+						</p>
+					</dd>
+				</dl>
+			</section>
+			<section class="row DRC-scanSucessBox iss-mgT30">
+				<div class="col-xs-12">
+					<p class="scanSucess-msg">成功获得<i>20</i>积分</p>
+					<p class="scanSucess-gay">当前总积分899</p>
+				</div>
+			</section>
+			<section class="row DRC-scanSucessBox iss-mgT30">
+				<div class="col-xs-12">
+					<p class="text-center scanSucessStar">
+						<img src="image/min/scan_28.jpg" />
+						<img src="image/min/scan_28.jpg" />
+						<img src="image/min/scan_28.jpg" />
+						<img src="image/min/scan_29.jpg" />
+						<img src="image/min/scan_29.jpg" />
+					</p>
+					<p class="scanSucessMsgBox DRC-bolgLable">
+						<span>服务很好</span>
+						<span>态度真的很棒</span>
+						<span>环境好优雅</span>
+						<span>环境优雅</span>
+						<span>态度真的很棒</span>
+						<span>环境好优雅</span>
+						<span>环境优雅</span>
+					</p>
+					<p class="scanSucessTextarea">
+						<textarea class="textarea iss-placeholder">亲，写下您的消费体会，会极大帮助我们持续提高服务，长度在5~50个字之间</textarea>
+					</p>
+				</div>
+			</section>
+			<section class="row DRC-scanSucessBox iss-mgT30">
+				<div class="col-xs-12">
+					<ul class="scanSucessBoxUl">
+						<li>小票号：20051225001</li>
+						<li>交易金额：200元</li>
+						<li>交易时间：2015-12-22 11:00:00</li>
+					</ul>
+					<p class="text-center iss-mgT50"><a href="javascript:;" class="iss-btn190">扫码完成</a></p>
+				</div>
+			</section>
+		</article>
+
+	<script>
+		seajs.use(["./css/scan.css"]);//页面所需css类似streetSnap
+		seajs.use(["./js/default.js"])
+	</script>
+	</body>
+	
+</html>

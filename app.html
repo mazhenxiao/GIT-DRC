@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>APP下载</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+		<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+
+		<article class="container">
+			<section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="index.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">APP下载</h1>
+				</div>
+			</section>
+			<section class="row DRC-APPdown DRC-border-top">
+				<div class="col-xs-12">
+					<p class="appdownImage">
+						<img src="image/min/app_05.jpg" />
+					</p>
+				</div>
+			</section>
+			<footer class="DRC-APPdown-footer">大融城集团所有</footer>
+			<div class="DRC-APPdown-float J_touch_hide"><img src="image/min/app_06.png" /></div>
+		
+
+		</article>
+
+	<script>
+		seajs.use(["./css/userInfo.css"],function(){
+
+			var win = $(document);
+				win.on("touchend",".J_touch_hide",function(){
+					var th = $(this);
+						if(th.hasClass("J_touch_hide")){
+							th.fadeOut(300,function(){
+								th.remove();
+							});
+						}
+				})
+
+		});//页面所需css类似streetSnap
+		
+	</script>
+	</body>
+	
+</html>
+

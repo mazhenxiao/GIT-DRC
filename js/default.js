@@ -251,6 +251,7 @@
 		$doc.on("touchstart",".iss-placeholder,.J_Event_Select",function(){
 			var th = $(this);
 			(th.hasClass("iss-placeholder"))&&(!function(){
+				if(th.nodeName=="textarea"){th.removeClass("iss-placeholder").html("").focus();;return;}
 				th.removeClass("iss-placeholder").val("").focus();
 			}());
 
