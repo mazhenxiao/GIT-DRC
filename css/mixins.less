@@ -44,6 +44,7 @@
 .translateY(@y: 0) {
   -webkit-transform: translateY(@y);
   -ms-transform: translateY(@y); // IE9+
+  -moz-transform: translateY(@y); // IE9+
   transform: translateY(@y);
 }
 
@@ -188,6 +189,12 @@
 .animation-fill-mode(@fill-mode) {
   -webkit-animation-fill-mode: @fill-mode;
   animation-fill-mode: @fill-mode;
+}
+
+.boxshadow{
+  box-shadow:rgba(0,0,0,0.5) 0 0 5px;
+  -moz-box-shadow:rgba(0,0,0,0.5) 0 0 5px;
+  -webkit-box-shadow:rgba(0,0,0,0.5) 0 0 5px;
 }
 
 

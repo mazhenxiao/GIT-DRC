@@ -52,7 +52,17 @@
 			//蓉蓉播报页面公用js
 					$(function(){
 
-						    $('#doc-vld-msg').validator({
+						    $('#doc-vld-msg').validator({ 
+				  submit: function() {
+				  	alert(1);
+    var formValidity = this.isFormValid();
+
+    $.when(formValidity).then(function() {
+      // 验证成功的逻辑
+    }, function() {
+      // 验证失败的逻辑
+    });
+  }, 
    				 onValid: function(validity) {
      				 $(validity.field).closest('.am-form-group').find('.am-alert').hide(); //
    			 },

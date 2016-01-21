@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>地图</title>
+		<meta name="viewport" content="width=750, user-scalable=no" />
+	<!--页面JS start-->
+		<!--包含bootstrap、underscore、jquery2.1.4-->
+		<link type="text/css" rel="stylesheet" href="css/min/default.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<script src="js/min/all.js"></script>
+		<script src="js/bower_components/seajs/dist/sea.js" id="seajsnode"></script>
+		<script src="js/bower_components/seajs-css/dist/seajs-css.js"></script>
+		<!--页面JS end-->
+	</head>
+	<body>
+		<articel class="container">
+		   <section class="row DRC-search-box iss-oh">
+				<div class="iss-left">
+					<p class="DRC-menu-left"><a class="block" href="userInfo.html"></a></p>
+				</div>
+				<div class="DRC-search-input">
+					<h1 class="text-center">地图</h1>
+				</div>
+
+			</section>
+			<section class="DRC-map">
+				<div class="DRC-map-imgbox">
+					<div id="level1"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level2"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level3"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level4"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level5"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level6"><img  src="image/min/map_09.jpg" /></div>
+				</div>
+
+				<nav class="DRC-map-bar">
+					<p class="mapbtn_top"><img src="image/min/hotinfo_03.jpg" /></p>
+					<ul id="map_UL">
+						<li class="J_map_button"><a href="#level1">1F</a></li>
+						<li class="J_map_button"><a href="#level2">2F</a></li>
+						<li class="J_map_button"><a href="#level3">3F</a></li>
+						<li class="J_map_button"><a href="#level4">4F</a></li>
+						<li class="J_map_button"><a href="#level5">5F</a></li>
+						<li class="J_map_button"><a href="#level6">6F</a></li>
+						<p class="mapbtn_bottom"><img src="image/min/hotinfo_03.jpg" /></p>
+					</ul>
+				</nav>
+			</section>
+		</articel>
+<script>
+		seajs.use(["./css/userInfo.css"]);
+		seajs.use(["./js/map.js"],function(){
+               $(".DRC-map-bar").scrollspynav();//滚动锚点
+               $(function(){
+               		var ul = $("#map_UL");
+               	  $(document).on("touchend",".mapbtn_top,.mapbtn_bottom",function(){
+               	  	var th = $(this),
+               	  		act = ul.find(".am-active").parent();
+               	  		if(th.hasClass("mapbtn_top")){
+               	  			act.prev().find("a").click()
+               	  		}else if(th.hasClass("mapbtn_bottom")){
+               	  			act.next().find("a").click();
+               	  		}
+
+               	  })
+
+
+               })
+		})
+</script>
+
+
+
+
+	</body></html>
