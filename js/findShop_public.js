@@ -16,7 +16,7 @@ define(function(require, exports, module) {
     				var pa = th.siblings();
     					const_ul.html("");
     					if(!th.hasClass("active")){
-    						th.addClass("active");
+    						th.addClass("active").siblings().removeClass("active");
     						Event_Mousedown(th.attr("id"),th);
     					}else{
 

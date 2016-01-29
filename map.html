@@ -26,7 +26,7 @@
 			</section>
 			<section class="DRC-map">
 				<div class="DRC-map-imgbox">
-					<div id="level1"><img  src="image/min/map_09.jpg" /></div>
+					<div id="level1" class="action"><img  src="image/min/map_09.jpg" /></div>
 					<div id="level2"><img  src="image/min/map_09.jpg" /></div>
 					<div id="level3"><img  src="image/min/map_09.jpg" /></div>
 					<div id="level4"><img  src="image/min/map_09.jpg" /></div>
@@ -35,22 +35,23 @@
 				</div>
 
 				<nav class="DRC-map-bar">
-					<p class="mapbtn_top"><img src="image/min/hotinfo_03.jpg" /></p>
+					<p class="mapbtn_top J_map_button"><img src="image/min/hotinfo_03.jpg" /></p>
 					<ul id="map_UL">
-						<li class="J_map_button"><a href="#level1">1F</a></li>
+						<li class="J_map_button"><a class="am-active" href="#level1">1F</a></li>
 						<li class="J_map_button"><a href="#level2">2F</a></li>
 						<li class="J_map_button"><a href="#level3">3F</a></li>
 						<li class="J_map_button"><a href="#level4">4F</a></li>
 						<li class="J_map_button"><a href="#level5">5F</a></li>
 						<li class="J_map_button"><a href="#level6">6F</a></li>
-						<p class="mapbtn_bottom"><img src="image/min/hotinfo_03.jpg" /></p>
+						
 					</ul>
+					<p class="mapbtn_bottom J_map_button"><img src="image/min/hotinfo_03.jpg" /></p>
 				</nav>
 			</section>
 		</articel>
 <script>
 		seajs.use(["./css/userInfo.css"]);
-		seajs.use(["./js/map.js"],function(){
+		/*seajs.use(["./js/map.js"],function(){
                $(".DRC-map-bar").scrollspynav();//滚动锚点
                $(function(){
                		var ul = $("#map_UL");
@@ -67,6 +68,36 @@
 
 
                })
+		})*/
+		$(function(){
+
+			$(document).on("touchend",".J_map_button",function(){
+				var th = $(this),
+					ul = $("#map_UL");
+					act = ul.find(".am-active").parent();
+
+					if(th.has("a")){
+						var _a = th.find("a")
+							_e = $(_a.attr("href"));
+							 _a.addClass("am-active")
+							  	.parent()
+								.siblings()
+							    .find("a")
+							    .removeClass("am-active");
+							 _e.addClass("action")
+							   .siblings()
+							   .removeClass("action");
+					}
+					if(th.hasClass("mapbtn_top")){
+                       
+                         act.prev().find("a").trigger("touchend")
+					}
+					if(th.hasClass("mapbtn_bottom")){
+						
+               	  		 act.next().find("a").trigger("touchend");
+               	  	}
+			})
+
 		})
 </script>
 

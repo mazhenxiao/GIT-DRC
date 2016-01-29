@@ -35,7 +35,7 @@
 				<div class="DRC-hotinfo-box">
 					<p class="iss-oh">
 					<span class="iss-left iss-f30">如何将你的孩子读英语绘本</span>
-					<a class="iss-right DRC-btn200" href="javascrpt:;">报名</a>
+					<a class="iss-right DRC-btn J_button" href="javascript:;">报名</a>
 					</p>
 					<p class="iss-oh iss-cc iss-f26">
 						<span class="iss-left">江北大融城年终大酬宾，全场8折起。</span>
@@ -52,8 +52,17 @@
 			<section class="DRC-hotinfoBox iss-mgT20">
 					<h3>新华书店</h3>
 					<ul class="DRC-hotinfo-ul">
-						<li><img src="image/min/hotInfo_14.jpg"  />江北大融城店4F401<a href="javascript:;" class="DRC-right iss-right"></a></li>
-						<li><img src="image/min/hotInfo_22.jpg"  />400-100-120<a href="javascript:;" class="DRC-right iss-right"></a></li>
+						<li>
+							<a class="block" href="javascript:;">
+							<img src="image/min/hotInfo_14.jpg"  /><span class="color">江北大融城店4F401</span>
+						   <span href="javascript:;" class="DRC-right iss-right"></span>
+							</a>
+						</li>
+						<li><a href="tel:400100120" class="block">
+							<img src="image/min/hotInfo_22.jpg"  /><span class="color">400-100-120</span>
+							<span  class="DRC-right iss-right"></span>
+							</a>
+						</li>
 						<li>【活动时间】 2015-12-01 至  2015-12-09</li>
 						<li>【报名时间】 2015-11-01 至  2015-11-25</li>
 						<li>【活动时段】10:00-22:00</li>
@@ -63,11 +72,11 @@
 
 			<section class="DRC-hotinfoBox iss-mgT20">
 					<h3>活动详情</h3>
-					<ul class="DRC-hotinfo-ul2">
-					<li>1.此活动2015-12-01至2015-12-25期间，报名人员可享受9折优惠。</li>
-						<li>2.预约信息：无需预约，到店使用。</li>
-						<li>3.本活动最终解释权归大融城所有。</li>
-					</ul>
+					<div class="DRC-hotinfo-ul2">
+					<p>1.此活动2015-12-01至2015-12-25期间，报名人员可享受9折优惠。</p>
+						<p>2.预约信息：无需预约，到店使用。</p>
+						<p>3.本活动最终解释权归大融城所有。</p>
+					</div>
 
 			</section>
 
@@ -75,11 +84,21 @@
 
 	<script>
 		seajs.use(["./css/hotInfo.css"]);//页面所需css类似streetSnap
-		/*seajs.use(["./js/streetSnap.js","./js/rongrongBroadcast.js"],function(select){
+		seajs.use(["./js/streetSnap.js","./js/rongrongBroadcast.js"],function(select){
 			//蓉蓉播报页面公用js
-		  
+		    $(".J_button").click(function(){
+		    		var th = $(this);
+		    	  iss.Success({title:"报名成功",content:"报名成功了！",Load:function(){
+		    	  		if(th.hasClass("DRC-btn")){
+		    	  			th.removeClass("DRC-btn").addClass("DRC-btn2").html("已报名");
+		    	  			return;
+		    	  		}
+		    	  		th.removeClass("DRC-btn2").addClass("DRC-btn").html("报名");
+
+		    	  }})
+		    })
 		
-		})*/
+		})
 	</script>
 	</body>
 	

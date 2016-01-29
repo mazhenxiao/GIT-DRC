@@ -19,33 +19,53 @@
 				<div class="col-xs-12">
 					<h1><a href="findShop.html">findShop.html -- 找店-方块</a></h1>
 					<h1><a href="findShopList.html">findShopList.html -- 找店-条件查询</a></h1>
-					<h1><a href="rongrongBroadcast.html">rongrongBroadcast.html -- 蓉蓉播报</a></h1>
+					<h1><a href="rongrongBroadcast.html">rongrongBroadcast.html -- 融融播报</a></h1>
 					<h1><a href="streetSnap.html">streetSnap.html -- 时尚街拍</a></h1>
 					<h1><a href="streetSnapInfo.html">streetSnapInfo.html -- 时尚街拍详情</a></h1>
-					<h1><a href="hotInfo.html">hotInfo.html -- 活动信息</a></h1>
-					<h1><a href="posIndex.html">posIndex.html -- 用户主页</a></h1>
+					<h1><a href="hotInfo.html">hotInfo.html -- 活动详情</a></h1>
+					<h1><a href="posIndex.html">posIndex.html -- 商户主页</a></h1>
 					<h1><a href="addCar.html">addCar.html -- 添加车牌</a></h1>
 					<h1><a href="login.html">login.html -- 登录</a></h1>
 					<h1><a href="registrar.html">registrar.html --注册 </a></h1>
 					<h1><a href="userInfo.html">userInfo.html --个人信息 </a></h1>
 					<h1><a href="modifyName.html">modifyName.html --修改名称 </a></h1>
+					<h1><a href="modifyPassword.html">modifyPassword.html --设置密码 </a></h1>
 					<h1><a href="modifyPhone.html">modifyPhone.html --修改手机号码 </a></h1>
 					<h1><a href="modifyPhoneSucess.html">modifyPhoneSucess.html --修改手机号码2 </a></h1>
 					<h1><a href="modifyImage.html">modifyImage.html --修改照片 </a></h1>
-					<h1><a href="scanSucess.html">acanSucess.html --扫码积分 </a></h1>
+					<h1><a href="scanButton.html">scanButton.html --扫码 </a></h1>
+					<h1><a href="scanSucess.html">scanSucess.html --扫码积分 </a></h1>
 					<h1><a href="myVIP.html">myVIP.html --我的会员卡 </a></h1>
 					<h1><a href="vipRights.html">vipRights.html --会员权益 </a></h1>
 					<h1><a href="argument.html">argument.html --服务协议 </a></h1>
 					<h1><a href="vipArgument.html">vipArgument.html --会员折扣 </a></h1>
 					<h1><a href="app.html">app.html --app引导页 </a></h1>
 					<h1><a href="map.html">map.html --地图页面 </a></h1>
+					<h1><a href="null.html">null.html --空页面 </a></h1>
+				</div>
+
+			</section>
+			<section class="row">
+				<div class="col-md-12 iss-pad20">
+					<h3>本页二维码</h3>
+					<p id="urlImage"></p>
 				</div>
 			</section>
 		</articel>
 		<!--页面所需控件-->
 	<script src="js/default.js"></script>
+	
 
 
+<script>
+	var QRCode = $.AMUI.qrcode;
+		$("#urlImage").html(new QRCode({
+			text:location.href,
+			width:256,
+			height:256
+		}));
+ 
+</script>
 
 	</body>
 	

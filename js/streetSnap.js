@@ -39,8 +39,8 @@ define(function(require, exports, module) {
          iss.dialog({
          	title:"提示",
          	content:"更多内容请下载APP.",
-         	width:"400px",
-         	height:"250px",
+         	width:"600px",
+         	height:"400px",
          	okVal:"下载APP",
          	cancelVal:"取消"
          })

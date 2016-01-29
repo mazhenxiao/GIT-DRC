@@ -1,27 +1,32 @@
 @import "streetSnap.less";
-.container{min-height:100%;background:#fff}
+.container,.am-form{min-height:100%;background:#fff}
 .am-form input[type="number"], .am-form input[type="search"], .am-form input[type="text"], .am-form input[type="password"], .am-form input[type="datetime"], .am-form input[type="datetime-local"], .am-form input[type="date"], .am-form input[type="month"], .am-form input[type="time"], .am-form input[type="week"], .am-form input[type="email"], .am-form input[type="url"], .am-form input[type="tel"], .am-form input[type="color"], .am-form select, .am-form textarea, .am-form-field{
   display:inline-block;width:400px;
 }
 .DRC-addCar-box{
     border-top:@B_d7;padding-top:20px;
-    .addCar-input{line-height:24px;width:596px;padding:20px;margin:0 auto;font-size:24px;border:none;}
-    .addCarLine{border:@B_5b;border-top:none;width: 635px;margin-top:10px;height:5px;margin:0 auto}
+    .addCar-input{line-height:26px;width:596px;padding:20px;margin:0 auto;font-size:@f26;border:none;}
+    .addCarLine{border:@B_5b;border-top:none;width: 630px;margin-top:10px;height:5px;margin:0 auto}
     .ddCar_checkbox{overflow: hidden;margin-left:50px;margin-bottom:10px;
         label,.am-ucheck-icons{font-size: @f28;display:inline-block;line-height:@f28;}
+        .am-ucheck-icons{font-size:@f34;line-height:@f34;}
         
         }
 }
  .DRC-search-input{position: relative;top:0;left:0;overflow: hidden;
-        .login{position: absolute;top:25px;right:10px;font-size:28px;color:@color;}
+        .login{position: absolute;top:25px;right:10px;font-size:@f28;color:@color;}
  }
 .DRC-login-box{ 
     .DRC-addCar-box;
-    .login-h40{padding-top:45px !important;}
+    .login-h40{margin-top:70px !important; position:relative;top:0;left:0}
     img{vertical-align: middle;margin-left:30px;}
-  .addCar-input{width:420px;vertical-align: middle;}
-  .login-getphone{font-size:@f26;}
-  .DRC-login-form{width:635px;margin:0 auto;
+  .addCar-input{width:400px;vertical-align: middle;}
+
+  .login-getphone{font-size:@f26;cursor:default; position:absolute;top:12px;right:0;float:none;
+    span.DRC_time{ display:none;}
+  }
+  .DRC-login-form{width:630px;margin:0 auto;
+      position:relative; left:0;top:0;
     .login-t50{margin-top:50px;}
    
   }
@@ -30,17 +35,40 @@
 
 .DRC-registrar-form{
    .DRC-login-box;
-   padding-top:45px;
+   padding-top:90px;
    .registrar-box{ 
        vertical-align: middle;padding:40px;
-      .am-ucheck-checkbox, .am-ucheck-icons, .am-ucheck-radio{position:relative !important; display: inline-block;vertical-align: middle;font-size:24px;
+      .am-ucheck-checkbox, .am-ucheck-icons, .am-ucheck-radio{position:relative !important; display: inline-block;vertical-align: middle;font-size:@f24;
         
       }
       .am-checkbox{
-          span{font-size:24px;vertical-align: middle;padding-left:5px;}
+          span,a{font-size:@f24;vertical-align: top;}
+          a.iss-bule{margin-left:0px;}
+          .am-ucheck-icons{font-size:@f34;vertical-align: middle;margin-right:20px}
       }
    }
 
 }
 .mp-H35{padding-top:35px;}
-.modifyPhone-h4{font-size:@f28;font-weight: normal;padding-bottom:50px}
+.modifyPhone-h4{font-size:@f28;font-weight: normal;padding-bottom:50px;vertical-align: middle;img{margin-right:20px;vertical-align: middle;};span{vertical-align: middle;}}
+.DRC-password{
+    padding-top:0;
+    h4.passwordTitle{ font-size:@f28; text-align: center;padding:50px 0 90px 0;font-weight: normal;}
+    .addCar-input{width:100% !important;}
+}
+
+.DRC-scanButton{
+ 
+  .scanbuttonTitle{
+     padding:0 60px;
+     font-size:@f30;text-align:left; height:100px;line-height: 100px;border-bottom:@B_d7;
+     img{margin-right: 26px;}
+     span{vertical-align: middle;}
+  }
+  .scanbuttonTitle2{height:100px;line-height: 100px;margin-bottom:50px;font-size:@f24; padding:0 60px;}
+}
+.DRC-modifyPhone{
+
+  .addCar-input{margin-top:0px;font-size:@f26 !important;}
+  .login-h40{margin-top:60px !important}
+}

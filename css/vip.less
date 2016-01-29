@@ -1,7 +1,7 @@
 @import "streetSnap.less";
 .DRC-userInfo-form{
-	padding:0 20px;
-	dl{font-size:@f28;border-bottom:@B_d7;
+	/* padding:0 20px; */
+	dl{font-size:@f28;border-bottom:@B_d7;padding:0 20px;
 		&:last-child{border-bottom:none;}
         dt{font-weight: normal; float:left;text-indent:10px}
         dd{
@@ -16,30 +16,41 @@
 .DRC-streetSnap-bolg,.DRC-vipBox,.DRC-userInfo-form{background:#fff;}
 
 .DRC-vipRightBox{
-	h3{font-weight: normal;font-size:24px;height:90px;line-height:90px;color:@C9;margin:0 20px}
+	h3{font-weight: normal;font-size:@f24;height:90px;line-height:90px;color:@C9;text-indent:60px;background:#f2f2f2}
 
 	.viprightTable{background:#fff;table-layout:fixed;border-collapse:collapse;
 		tbody th,tbody td{
-			height:85px;vertical-align: middle;font-size:24px;text-align: center;font-weight: normal;
+			height:85px;vertical-align: middle;font-size:@f24;text-align: center;font-weight: normal;
 			border:#d7d7d7 solid 1px;
 
 		}
-		tbody th{ background:#f8f8f8;}
+		tbody th{ background:#f8f8f8; /* font-size:@f28; */ font-size:28px;}
 	
 	}
 	/* 会员协议 */
-		h3.DRC-vipATitle{text-align: center;font-size:24px !important;color:@color; height:115px;line-height:115px;
-			i{font-size:42px;color:#ff5a00;vertical-align: middle;margin-right:10px;}
-			span{vertical-align: middle;padding-top:3px}
+		h3.DRC-vipATitle{text-align: center;font-size:@f24 !important;color:@color; height:115px;line-height:115px;
+			i{font-size:4.2rem !important;color:#ff5a00;vertical-align:baseline;margin-right:10px;}
+			span{vertical-align:bottom;padding-top:3px}
 		}
 
 }
 	.vipRightbox{
-			div{ background:#fff;}
+			background:#fff;
+			div{ }
 			a{display:block;height:177px;text-align:center;
-			img{margin-top:40px;}
-			span{display:block;font-size:24px;color:@color;margin-top:10px }
+			img{margin-top:40px;width: 72px;height: 72px;border-radius:50%;}
+			span{display:block;font-size:@f24;color:@color;margin-top:10px }
 			}
 		 
 		
 	}
+.DRC-streetSnap-bolg{
+	.D-b-name{font-size:@f30 !important;}
+}
+.DRC_VIP_BOX{
+	width:680px;height:404px;overflow: hidden;margin:0 auto;position:relative;top:0;left:0;
+	img{width:680px;height:404px;border-radius:16px;}
+	p.DRC-JF{text-align:center;vertical-align: bottom;position:absolute;bottom:25px;left:0;font-size:@f26;color:#D8BD92;
+		width:100%;
+	}
+}

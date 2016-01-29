@@ -35,8 +35,8 @@
 		var th = this,
 			_opt = {
 			title:"标题",
-			width:"400px",
-			height:"200px",
+			width:"600px",
+			height:"400px",
 			background:"rgba(0,0,0,0.7)",
 			content:"显示内容",
 			url:"",
@@ -49,18 +49,18 @@
 			id:new Date().getTime(),
 			Load:$.noop,
 			Close:$.noop,
-			_tem:'<div class="modal" id="id_<%=id%>" style="width:<%=width%>;height:<%=height%>;">'
+			_tem:'<div class="modal" id="id_<%=id%>" style="min-width:<%=width%>;mins-height:<%=height%>;">'
 				 +	'<div class="modal-dialog">'
 				 +	 	'<div class="modal-content">'
-      			 +			'<div class="modal-header">'
+      			/* +			'<div class="modal-header">'
       			 +				'<button type="button" class="close" data-dismiss="modal">'
       			 +					'<span aria-hidden="true">&times;</span>'
       			 +				'</button>'
       			 +				'<h4 class="modal-title"><%=title%></h4>'
+      			 +			'</div>'*/
+      			 +			'<div class="modal-body"><%=title%><div class="modal-txt"><%=content%></div>'
       			 +			'</div>'
-      			 +			'<div class="modal-body"><%=content%>'
-      			 +			'</div>'
-      			 +			'<div class="modal-footer"><%=button%>'
+      			 +			'<div class="modal-footer"><table width="100%"><tr><%=button%></tr></table>'
       			 +			'</div>'
       			 +		'<div>'
 				 +	'</div>'
@@ -74,7 +74,7 @@
 		
 		_opt = th.setButton(_opt);
 		//console.log(_opt);
-		iss["list"][_opt.id]=th._dom = $(_.template(_opt._tem)({title:_opt.title,id:_opt.id,content:_opt.content,button:_opt.Button,width:_opt.width,height:_opt.height})).appendTo("body .container");
+		iss["list"][_opt.id]=th._dom = $(_.template(_opt._tem)({title:'<h4 class="modal-title">'+_opt.title+'</h4>',id:_opt.id,content:_opt.content,button:_opt.Button,width:_opt.width,height:_opt.height})).appendTo("body .container");
 		th._dom.on("shown.bs.modal",_opt.Load)
 				 .on("hidden.bs.modal",_opt.Close)
 				 .on("click.modal",".btn-ok,.btn-cancel,.btn-it-default",_opt,th.Event)
@@ -93,15 +93,16 @@
 		setButton:function(_opt){
 			var str = "";
 			if(_opt.okVal){
-				str+='<button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">'+_opt.okVal+'</button>'
+
+				str+='<td><button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">'+_opt.okVal+'</button></td>'
 			}
 			if(_opt.cancelVal){
-				str+='<button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">'+_opt.cancelVal+'</button>'
+				str+='<td><button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">'+_opt.cancelVal+'</button></td>'
 			}
 			if(_opt.button){
 				_opt.button.map(function(key,ind){
 					
-				    str+='<button type="button" data-ind="'+ind+'" class="btn btn-default btn-it-default" '+key["disabled"]+'  data-dismiss="modal" >'+key.name+'</button>'
+					str+='<td><button type="button" data-ind="'+ind+'" class="btn btn-default btn-it-default" '+key["disabled"]+'  data-dismiss="modal" >'+key.name+'</button></td>'
 				})
 			}
 			_opt.Button = str;
@@ -141,6 +142,40 @@
 			_opts.content = arg
 		}
 		if(callback){ _opts.Close = callback; }
+		this.dialog(_opts);
+	}
+	function Error(arg,callback){
+		var _opts = {
+				title:"失败",
+				content:"没有需要提示的内容！",
+				cancelVal:false,
+				Close:$.noop
+		}
+		if(_.isObject(arg)){
+			_.extend(_opts,arg);
+			
+		}else if(_.isString(arg)){
+			_opts.content = arg
+		}
+		if(callback){ _opts.Close = callback; }
+		_opts.title = "<img src='image/min/error.png' width='44' height='44' /><span>"+_opts.title+"</span>";
+		this.dialog(_opts);
+	}
+	function Success(arg,callback){
+			var _opts = {
+				title:"成功",
+				content:"没有需要提示的内容！",
+				cancelVal:false,
+				Close:$.noop
+		}
+		if(_.isObject(arg)){
+			_.extend(_opts,arg);
+			
+		}else if(_.isString(arg)){
+			_opts.content = arg
+		}
+		if(callback){ _opts.Close = callback; }
+		_opts.title = "<img  src='image/min/sucess.png' width='44' height='44' ><span>"+_opts.title+"</span>";
 		this.dialog(_opts);
 	}
 	function Confom(content,ok,cancel){
@@ -208,7 +243,8 @@
 			  _opt["_this"] = _this;
 			  $(_.template(_mod)(_opt))
 			  .appendTo("body")
-			  .on("touchend.DRC",".J_issFloatBtn",_opt,this.Event_Float);
+			  .on("touchend.DRC",".J_issFloatBtn",_opt,this.Event_Float)
+			  .bind("touchend.DRC_SELF",_opt,this.Event_remove);
 			  
 			  
 		},
@@ -217,6 +253,7 @@
 			var th = $(this),
 				da = ev.data,
 			    attr = th.attr("data-num");
+		
 			    //console.log(da);
 			    if(th.hasClass("J_issFloatBtn")){
 			    	var index = parseInt(attr)
@@ -228,9 +265,15 @@
 			    	da._this.remove();
 			    }
 		},
+		Event_remove:function(ev){
+		       var closeE = $(ev.target).is(".iss-Float")
+				if(closeE){
+                   ev.data._this.remove();
+				}
+		},
 		remove:function(){
 			     
-				$(".iss-Float").remove().off("touchend.DRC");//清理页面
+				$(".iss-Float").remove().off("touchend.DRC").unbind("touchend.DRC_SELF");//清理页面
 			
 		}
 		
@@ -238,10 +281,12 @@
 
  //iss 页面统一调用接口
 	_.extend(iss,{
-		dialog:function(arg){ new Dialog(arg)},
+		dialog:function(arg){return new Dialog(arg)},
 		alert:Alert,
+		Error:Error,
+		Success:Success,
 		confirm:Confom,
-		float:function(arg){new Float(arg)}
+		float:function(arg){return new Float(arg)}
 		
 	});
 	

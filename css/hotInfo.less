@@ -2,20 +2,23 @@
 .DRC-hotinfo-box{
 	
 	padding:20px;background:#fff;
-	p.iss-oh{height: 60px;line-height: 60px;}
-	p.DRC-bolgLable{border-top:@B_d7;padding:20px 0}
+	p.iss-oh{min-height: 60px;line-height: 60px;}
+	p.DRC-bolgLable{border-top:@B_d7;padding:20px 0;margin-left:-20px;margin-right:-20px; padding-bottom:0;margin-bottom:-15px}
 }
+
 .DRC-hotinfoBox{background:#fff;
 	h3,li{padding:0 20px;}
-	h3{height:80px;line-height:80px;font-size: 30px;}
+	h3{height:80px;line-height:80px;font-size: @f30;}
 	.DRC-hotinfo-ul{
-	li{overflow: hidden;font-size:26px;height:80px;line-height:80px; vertical-align: middle;border-top:@B_d7;
-		img{vertical-align: middle;margin-right:20px}
-		a{ display:inline-block;width: 19px;height: 80px;vertical-align: middle;}
+	li{overflow: hidden;font-size:@f26;height:80px;line-height:80px; vertical-align: middle;border-top:@B_d7;
+		img{vertical-align: middle;margin-right:10px}
+		.DRC-right{ display:inline-block;width: 19px;height: 80px;vertical-align: middle;}
 		}
 	}
-	.DRC-hotinfo-ul2{ width:590px;
-		li:first-child{border-top:@B_d7}
-		li{font-size:24px;padding-top:20px;padding-left:2rem;text-indent:-1rem;}
+	.DRC-hotinfo-ul2{ 
+	
+		padding:20px 20px 50px 20px;font-size:@f24;
+		/* li:first-child{border-top:@B_d7}
+		li{font-size:24px;padding-top:20px;padding-left:2rem;text-indent:-1rem;padding-left:4rem;padding-right:4rem} */
 	}
 }
